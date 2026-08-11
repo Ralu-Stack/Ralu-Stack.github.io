@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Project detail - Ralu Chineme">
+<title>Raspberry Pi 5 Homelab - Ralu Chineme</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👤</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        },
+      },
+    },
+  }
+</script>
+
+<style>
+  body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+  .latex-serif { font-family: 'Source Serif 4', Georgia, serif; }
+</style>
+</head>
+<body class="antialiased bg-white">
+
+<header class="max-w-4xl mx-auto px-6 sm:px-8 pt-8">
+  <a href="../index.html#projects" class="inline-flex items-center gap-2 text-gray-600 hover:text-black transition-colors font-medium">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 6l-6 6l6 6"></path>
+    </svg>
+    Back to Home
+  </a>
+</header>
+
+<article class="max-w-4xl mx-auto px-6 sm:px-8 py-10 sm:py-14">
+  <span class="text-sm font-mono" style="color:#F2A93B">01</span>
+  <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mt-1 tracking-tight">Raspberry Pi 5 Homelab</h1>
+  <p class="text-sm text-gray-500 mt-2">Self-hosted infrastructure on a Raspberry Pi 5</p>
+  <div class="w-[75px] h-[5px] mt-4 mb-8 rounded-full" style="background-color:#F2A93B"></div>
+
+  <div class="space-y-6 text-base sm:text-lg text-gray-600 leading-relaxed">
+    <p>
+      A Raspberry Pi 5 homelab that runs as a small home server, always on. Instead of using the Pi for just one thing, it hosts several services at once: private cloud storage, network-wide ad blocking, service monitoring, a media server, and a dashboard that ties everything together. It started as a basic setup and grew over time into a proper multi-service server that I can access securely from my other devices, and that my family can use too.
+    </p>
+    <p>
+      The Pi sits in a Pironman 5 case and runs headless, meaning no keyboard, mouse, or monitor plugged into it. I manage it remotely by SSHing in from my Windows computer through PowerShell. Storage is split across two drives: a microSD card that just holds the operating system, and a 2 TB NVMe SSD mounted at <code class="text-sm bg-gray-100 px-1.5 py-0.5 rounded">/mnt/storage</code> that holds everything else. Each service gets its own folder there (like <code class="text-sm bg-gray-100 px-1.5 py-0.5 rounded">/mnt/storage/nextcloud</code> or <code class="text-sm bg-gray-100 px-1.5 py-0.5 rounded">/mnt/storage/jellyfin/Movies</code>), so the actual data survives even if I rebuild or update a service.
+    </p>
+    <p>
+      Most services run in Docker instead of being installed directly on the Pi. That keeps each one self-contained, with its own settings, storage, and network config, so they don't interfere with each other even though they're all running on the same device. Portainer gives me a visual dashboard for managing all of it, so I can check on containers, restart something that's acting up, or look at networking without typing out Docker commands every time.
+    </p>
+    <p>
+      Pi-hole turns the Pi into the DNS server for my whole home network. Normally your devices ask a public DNS server "where do I find this website," but now they ask the Pi first, and it can block ad and tracking domains before the request even leaves the house. Setting this up meant actually learning how DNS works instead of just installing an app and hoping it did something.
+    </p>
+    <p>
+      Nextcloud is basically a private version of Google Drive, running on the Pi with its files stored on the NVMe drive instead of inside the container. I set it up for more than one person: I made an account for a family member and used Tailscale to let her phone connect securely without opening up any ports to the public internet. That came with a real bug to chase down: her phone had joined a different Tailscale network than the Pi, so they couldn't see each other. Fixing that meant getting both devices onto the same network, then going further and using Tailscale Serve so Nextcloud could be reached over HTTPS instead of a plain IP address and port. That last part meant going into the Nextcloud container and using its <code class="text-sm bg-gray-100 px-1.5 py-0.5 rounded">occ</code> command-line tool to fix a couple of settings (<code class="text-sm bg-gray-100 px-1.5 py-0.5 rounded">overwriteprotocol</code> and <code class="text-sm bg-gray-100 px-1.5 py-0.5 rounded">overwritehost</code>) and add the new address to Nextcloud's trusted-domain list, so it would stop rejecting the requests.
+    </p>
+    <p>
+      Jellyfin is a media server with its own folders on the NVMe drive for movies, TV, and music, set up the same way as Nextcloud so the files stick around independently of the container. Uptime Kuma keeps an eye on everything and tells me if a service goes down, instead of me finding out by accident later. On top of all that sits a Homepage dashboard, basically a home page listing every service (Portainer, Pi-hole, Uptime Kuma, Nextcloud, plus links out to GitHub and Canvas), so I don't have to remember a bunch of IP addresses and port numbers.
+    </p>
+    <p>
+      Most of what I actually learned came from debugging things that touched more than one part of the system at once. When Nextcloud worked fine on my own network but failed for someone else's phone, the problem could have been Nextcloud itself, Docker's networking, the home network, Tailscale, the HTTP vs. HTTPS mismatch, the trusted-domain setting, or the phone's own app settings. Working through that list one piece at a time, instead of assuming the first thing I noticed was the actual problem, is honestly the main skill this project taught me.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+    <img src="../images/raspberry1.jpg" alt="Raspberry Pi homelab parts and components" class="w-full aspect-square object-cover rounded-md shadow-lg">
+    <img src="../images/raspberry2.jpg" alt="Assembled Raspberry Pi homelab with blue lighting" class="w-full aspect-square object-cover rounded-md shadow-lg">
+    <img src="../images/homepage-dashboard.png" alt="Homepage dashboard tying together the homelab's services" class="w-full aspect-square object-cover rounded-md shadow-lg bg-gray-900">
+  </div>
+
+  <div class="flex flex-wrap gap-2 pt-8">
+    <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Linux</span>
+    <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Docker</span>
+    <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Networking</span>
+    <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Tailscale</span>
+    <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">DNS</span>
+  </div>
+</article>
+
+<footer class="border-t border-gray-200 py-8">
+  <div class="max-w-4xl mx-auto px-6 sm:px-8">
+    <a href="../index.html#projects" class="inline-flex items-center gap-2 text-gray-600 hover:text-black transition-colors font-medium">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 6l-6 6l6 6"></path>
+      </svg>
+      Back to Home
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>

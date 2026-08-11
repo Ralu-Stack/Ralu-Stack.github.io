@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Project detail - Ralu Chineme">
+<title>Servo Claw - Ralu Chineme</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👤</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        },
+      },
+    },
+  }
+</script>
+
+<style>
+  body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+  .latex-serif { font-family: 'Source Serif 4', Georgia, serif; }
+</style>
+</head>
+<body class="antialiased bg-white">
+
+<header class="max-w-4xl mx-auto px-6 sm:px-8 pt-8">
+  <a href="../index.html#projects" class="inline-flex items-center gap-2 text-gray-600 hover:text-black transition-colors font-medium">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 6l-6 6l6 6"></path>
+    </svg>
+    Back to Home
+  </a>
+</header>
+
+<article class="max-w-4xl mx-auto px-6 sm:px-8 py-10 sm:py-14">
+  <span class="text-sm font-mono" style="color:#F2A93B">04</span>
+  <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mt-1 tracking-tight">Servo Claw</h1>
+  <p class="text-sm text-gray-500 mt-2">Sensor-driven pick-and-grab mechanism, built with a team</p>
+  <div class="w-[75px] h-[5px] mt-4 mb-8 rounded-full" style="background-color:#F2A93B"></div>
+
+  <div class="space-y-6 text-base sm:text-lg text-gray-600 leading-relaxed">
+    <p>
+      A mechanical claw I built with a group of students that can spot and grab a nearby object completely on its own, no button, no manual trigger. The body is made from sheet metal folded into a triangular head that holds the electronics, with two hinged panels on either side that swing in to close around whatever the sensor picks up.
+    </p>
+    <p>
+      There's an ultrasonic sensor on the claw's head, kind of positioned like a pair of eyes, that constantly measures how far away the nearest object is by timing how long a sound pulse takes to bounce back. Once something gets close enough, that distance reading is what actually tells the Arduino to start closing the claw. Nobody has to press anything.
+    </p>
+    <p>
+      Once it's triggered, a servo at the claw's core rotates through a set range to swing the two gripper panels shut around the object, then just holds there instead of continuing to rotate. Getting this actually reliable took a lot of tuning. I had to map the servo's rotation range onto the panels' physical range of motion so it grips tight enough without straining the hinges, and I had to tune the sensor's trigger distance so it grabs consistently instead of firing too early on nearby clutter or missing things that are a bit farther out.
+    </p>
+    <p>
+      I helped write the rotation-control code that drives the servo through the open-close sequence based on the sensor readings, and helped build the physical claw itself: cutting and folding the sheet metal, mounting the sensor and servo, and wiring it all back to the Arduino. Working on it drove home how much the mechanical build and the code depend on each other in a project like this. Neither one works on its own if the other isn't dialed in.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+    <img src="../images/claw-sketch.jpg" alt="Hand-drawn design sketch of the claw's elastic-band gripper arms" class="w-full aspect-square object-contain bg-white rounded-md shadow-lg">
+    <img src="../images/claw-electronics.jpg" alt="Arduino and servo wiring inside the claw's housing" class="w-full aspect-square object-cover rounded-md shadow-lg">
+  </div>
+
+  <div class="flex flex-wrap gap-2 pt-8">
+    <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Arduino</span>
+    <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">C++</span>
+    <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Sensors</span>
+    <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Team Project</span>
+  </div>
+</article>
+
+<footer class="border-t border-gray-200 py-8">
+  <div class="max-w-4xl mx-auto px-6 sm:px-8">
+    <a href="../index.html#projects" class="inline-flex items-center gap-2 text-gray-600 hover:text-black transition-colors font-medium">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 6l-6 6l6 6"></path>
+      </svg>
+      Back to Home
+    </a>
+  </div>
+</footer>
+
+</body>
+</html>
