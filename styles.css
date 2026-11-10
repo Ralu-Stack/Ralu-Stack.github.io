@@ -1,13 +1,13 @@
 /* Ralu Chineme portfolio. One stylesheet for the home page and the article pages. */
 
 :root {
-  --bg: #1f1e1d;
-  --panel: rgba(43, 42, 39, 0.72);
-  --surface: #2b2a27;
-  --line: #3b3a36;
-  --text: #d8d5cc;
-  --muted: #a09c92;
-  --bright: #f5f3ec;
+  --bg: #1c1d1e;
+  --panel: rgba(40, 42, 44, 0.72);
+  --surface: #282a2c;
+  --line: #3a3c3f;
+  --text: #d6d8db;
+  --muted: #9ba0a6;
+  --bright: #f3f5f7;
   --accent: #8fb4ff;
   --accent-soft: rgba(143, 180, 255, 0.13);
   --font: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -160,7 +160,7 @@ p { margin: 0; }
 
 .btn:hover { border-color: var(--muted); text-decoration: none; }
 
-.btn-primary { background: var(--bright); border-color: var(--bright); color: #1f1e1d; font-weight: 600; }
+.btn-primary { background: var(--bright); border-color: var(--bright); color: #1c1d1e; font-weight: 600; }
 .btn-primary:hover { background: #fff; border-color: #fff; }
 
 .btn-icon { width: 42px; padding: 0; }
@@ -261,7 +261,7 @@ p { margin: 0; }
 .shots img.contain { object-fit: contain; background: #fff; }
 .shots-1 img, .shots-1 .figure { aspect-ratio: 5 / 2; }
 
-.figure { padding: 20px; height: auto; background: rgba(31, 30, 29, 0.6); }
+.figure { padding: 20px; height: auto; background: rgba(28, 29, 30, 0.6); }
 
 /* ---------- Experience and education ---------- */
 
@@ -280,7 +280,7 @@ p { margin: 0; }
 .entry h3 { font-size: 19px; }
 .entry-top:has(.with-logo) { align-items: center; }
 .entry h3.with-logo { display: flex; align-items: center; gap: 12px; }
-.entry h3.with-logo img { width: 34px; height: auto; }
+.entry h3.with-logo img { width: 34px; height: 34px; border-radius: 8px; }
 .entry h3 a { color: inherit; }
 .entry h3 a:hover { color: var(--accent); text-decoration: none; }
 
@@ -336,7 +336,7 @@ p { margin: 0; }
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(31, 30, 29, 0.86);
+  background: rgba(28, 29, 30, 0.86);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
@@ -406,7 +406,7 @@ p { margin: 0; }
   background: #fff;
 }
 
-.logo-tile.dark { background: #161514; }
+.logo-tile.dark { background: #161718; }
 
 .logo-tile img {
   width: auto;
