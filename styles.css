@@ -83,17 +83,7 @@ p { margin: 0; }
   flex-direction: column;
 }
 
-.side-photo {
-  width: 96px;
-  height: 96px;
-  object-fit: cover;
-  object-position: 46% 50%;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-}
-
 .side h1 {
-  margin-top: 24px;
   font-size: 40px;
   letter-spacing: -0.035em;
 }
