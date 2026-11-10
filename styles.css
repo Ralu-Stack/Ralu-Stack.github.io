@@ -278,6 +278,9 @@ p { margin: 0; }
 }
 
 .entry h3 { font-size: 19px; }
+.entry-top:has(.with-logo) { align-items: center; }
+.entry h3.with-logo { display: flex; align-items: center; gap: 12px; }
+.entry h3.with-logo img { width: 34px; height: auto; }
 .entry h3 a { color: inherit; }
 .entry h3 a:hover { color: var(--accent); text-decoration: none; }
 
