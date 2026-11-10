@@ -443,6 +443,9 @@ p { margin: 0; }
   .skills dd { margin-bottom: 10px; }
   .shots-3 { grid-template-columns: 1fr 1fr; }
   .shots-3 img:last-child { display: none; }
+  .entry-top,
+  .entry-top:has(.with-logo) { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .entry-date { order: 2; }
   .nav-name { display: none; }
   .nav-inner { justify-content: center; }
   .nav-links { gap: 18px; }
