@@ -3,465 +3,311 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Portfolio website of Ralu Chineme">
+<meta name="description" content="Ralu Chineme is a second-year Computer Engineering student at UBC. Projects in embedded C, FPGA, Linux and web development.">
+<meta name="theme-color" content="#1f1e1d">
 <title>Ralu Chineme - Computer Engineering Student, UBC</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👤</text></svg>">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          serif: ['"Source Serif 4"', 'Georgia', 'serif'],
-          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        },
-      },
-    },
-  }
-</script>
-
-<style>
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
-  .latex-serif { font-family: 'Source Serif 4', Georgia, serif; }
-  section[id] { scroll-margin-top: 6rem; }
-
-  @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-in { animation: fadeIn .8s ease-out forwards; opacity: 0; }
-  .animation-delay-200 { animation-delay: .2s; }
-  .animation-delay-400 { animation-delay: .4s; }
-  .animation-delay-600 { animation-delay: .6s; }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-<body class="antialiased">
+<body>
 
-<!-- ============ HEADER / NAV ============ -->
-<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-  <nav class="max-w-7xl mx-auto px-8 py-4">
-    <ul class="flex items-center gap-8 justify-center">
-      <li><a href="#about" class="text-gray-700 hover:text-black transition-colors font-medium">About</a></li>
-      <li><a href="#projects" class="text-gray-700 hover:text-black transition-colors font-medium">Projects</a></li>
-      <li><a href="#experience" class="text-gray-700 hover:text-black transition-colors font-medium">Experience</a></li>
-      <li><a href="#education" class="text-gray-700 hover:text-black transition-colors font-medium">Education</a></li>
-    </ul>
-  </nav>
-</header>
+<div class="page" id="top">
 
-<!-- ============ HERO ============ -->
-<section>
-  <div id="hero" class="relative isolate overflow-hidden bg-white pt-16 pb-12 sm:pt-20 sm:pb-14 md:pt-24 md:pb-16 md:min-h-screen flex flex-col" style="--accent-color:#F2A93B">
-    <div class="absolute inset-0 -z-10" style="background: radial-gradient(ellipse 800px 1200px at 0% 0%, #F2A93B40 0%, #F2A93B25 20%, #F2A93B10 40%, rgba(255,255,255,.3) 70%, rgba(255,255,255,.8) 90%, white 100%)"></div>
-    <svg aria-hidden="true" class="absolute inset-0 -z-10 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]">
-      <defs>
-        <pattern x="50%" y="-1" id="grid-pattern" width="200" height="200" patternUnits="userSpaceOnUse">
-          <path d="M.5 200V.5H200" fill="none"></path>
-        </pattern>
-      </defs>
-      <rect fill="url(#grid-pattern)" width="100%" height="100%" stroke-width="0"></rect>
-    </svg>
+  <!-- ============ SIDEBAR ============ -->
+  <header class="side">
+    <img class="side-photo" src="images/profile.jpg" alt="Ralu Chineme" width="96" height="96">
+    <h1>Ralu Chineme</h1>
+    <p class="side-role">Computer Engineering at UBC</p>
+    <p class="side-lead">I like building systems end to end, from embedded C on microcontrollers to a self-hosted Linux server.</p>
+    <p class="side-status">Looking for a co-op role for summer 2027</p>
 
-    <div class="p-8 pb-4 sm:p-10 sm:pb-4 md:p-16 md:pb-4 flex flex-col md:flex-row items-start justify-between gap-12">
-      <div class="text-left flex-1 max-w-xl lg:max-w-2xl">
-        <h1 class="mt-6 sm:mt-8 md:mt-10 text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold tracking-tight text-gray-800 animate-fade-in animation-delay-200">
-          <span>Ralu Chineme</span>
-        </h1>
-        <p class="mt-4 sm:mt-6 md:mt-8 text-pretty text-sm sm:text-base md:text-lg font-medium text-gray-600 animate-fade-in animation-delay-400">
-          UBC Computer Engineering student who enjoys building and analyzing systems along with tackling thought provoking programming problems.
-        </p>
-        <p class="mt-4 sm:mt-6 md:mt-8 animate-fade-in animation-delay-400">
-          <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="inline-block bg-black text-white text-sm sm:text-base md:text-lg font-medium px-4 py-2 rounded-2xl hover:bg-gray-800 transition-colors">
-            Resume
-          </a>
-        </p>
-      </div>
-      <div class="flex-shrink-0 animate-fade-in animation-delay-400">
-        <img src="images/profile.jpg" alt="Ralu Chineme" class="w-80 h-80 md:w-96 md:h-96 rounded-md object-cover shadow-lg">
-        
-      </div>
+    <nav class="side-nav" aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+    </nav>
+
+    <div class="side-links">
+      <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+      <a class="btn btn-icon" href="mailto:raluchineme@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path><path d="M3 7l9 6l9 -6"></path></svg></a>
+      <a class="btn btn-icon" href="https://www.linkedin.com/in/raluc5090" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 11v5"></path><path d="M8 8v.01"></path><path d="M12 16v-5"></path><path d="M16 16v-3a2 2 0 1 0 -4 0"></path><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path></svg></a>
+      <a class="btn btn-icon" href="https://github.com/Ralu-Stack" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg></a>
+    </div>
+  </header>
+
+  <!-- ============ CONTENT ============ -->
+  <main class="content">
+
+    <section id="about" class="section">
+      <h2>About</h2>
+      <div class="prose">
+      <p>
+        I'm a second-year Computer Engineering student at the University of British Columbia. This term I'm working with RISC-V assembly and SystemVerilog on a DE10-Lite FPGA board, and building a web app in Java with a team of classmates.
+      </p>
+      <p>
+        Outside of class I run a Raspberry Pi home server with six containerized services that my family uses every day. I've also competed in programming contests like MIT Battlecode, where my team placed second in the high school division in 2022, and Battlesnake.
+      </p>
+      <p>
+        I like understanding the smaller components of whatever I'm working on, whether that's a PC, a home server, or a website.
+      </p>
     </div>
 
-    <div class="px-8 pb-6 sm:px-10 sm:pb-8 md:px-16 md:pb-8 mt-2 flex gap-x-4 sm:gap-x-6 md:gap-x-8 text-gray-700 animate-fade-in animation-delay-600">
-      <a href="mailto:raluchineme@gmail.com" aria-label="Email" class="transition-colors duration-300 hover:text-[var(--accent-color)]">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
-          <path d="M3 7l9 6l9 -6"></path>
-        </svg>
-      </a>
-      <a href="https://www.linkedin.com/in/raluc5090" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="transition-colors duration-300 hover:text-[var(--accent-color)]">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 11v5"></path><path d="M8 8v.01"></path><path d="M12 16v-5"></path>
-          <path d="M16 16v-3a2 2 0 1 0 -4 0"></path>
-          <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path>
-        </svg>
-      </a>
-      <a href="https://github.com/Ralu-Stack" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="transition-colors duration-300 hover:text-[var(--accent-color)]">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
-        </svg>
-      </a>
+      <dl class="skills">
+      <dt>Languages</dt>
+      <dd>
+        <ul class="tags">
+          <li>C</li><li>C++</li><li>Java</li><li>Python</li><li>TypeScript</li><li>HTML/CSS</li><li>SystemVerilog</li><li>RISC-V assembly</li>
+        </ul>
+      </dd>
+      <dt>Hardware</dt>
+      <dd>
+        <ul class="tags">
+          <li>Arduino</li><li>Raspberry Pi</li><li>DE10-Lite FPGA</li><li>Oscilloscope</li><li>Multimeter</li>
+        </ul>
+      </dd>
+      <dt>Tools</dt>
+      <dd>
+        <ul class="tags">
+          <li>Linux</li><li>Docker</li><li>Git/GitHub</li><li>Tailscale</li><li>IntelliJ</li><li>VS Code</li>
+        </ul>
+      </dd>
+    </dl>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <p class="section-note">A selection of things I've built, plus what I'm working on now.</p>
+
+      <article class="project">
+        <div class="project-head">
+          <h3><a href="articles/proj-1.html">Raspberry Pi 5 Homelab</a></h3>
+        </div>
+        <p>An always-on home server running six containerized services (Nextcloud, Pi-hole, Jellyfin, Uptime Kuma, Portainer, and a Homepage dashboard) on a 2 TB NVMe SSD. Tailscale gives my family secure remote access without opening any ports to the internet.</p>
+        <ul class="tags"><li>Linux</li><li>Docker</li><li>Networking</li><li>DNS</li></ul>
+        <a class="more" href="articles/proj-1.html">Read the write-up</a>
+    <div class="shots shots-3">
+      <img src="images/raspberry1.jpg" alt="Raspberry Pi homelab parts and components" loading="lazy">
+      <img src="images/raspberry2.jpg" alt="Assembled Raspberry Pi homelab with blue lighting" loading="lazy">
+      <img src="images/homepage-dashboard.png" alt="Homepage dashboard tying together the homelab's services" loading="lazy">
     </div>
-  </div>
+      </article>
 
-  <!-- ============ ABOUT ============ -->
-  <section id="about" class="px-8 pt-4 pb-8 sm:px-12 sm:pt-6 sm:pb-10 md:px-16 md:pt-8 md:pb-12 lg:px-24 lg:pt-10 lg:pb-16">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-      <div class="lg:col-span-4">
-        <h2 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-gray-900 tracking-tight">About Me</h2>
-        <div class="w-[75px] h-[5px] mt-2 rounded-full" style="background-color:#F2A93B"></div>
-      </div>
-      <div class="lg:col-span-8 space-y-8">
-        <p class="text-lg sm:text-lg md:text-xl leading-relaxed text-gray-600">
-          I'm a second-year Computer Engineering student at the University of British Columbia. I love building projects end-to-end such as writing embedded C for Arduino microcontrollers, building a self-hosted Raspberry Pi server running containerized services, or developing web apps.
-        </p>
-        <p class="text-lg sm:text-lg md:text-xl leading-relaxed text-gray-600">
-          Outside of coursework, I've competed in programming contests like MIT Battlecode and Battlesnake, and I'm always looking to build and gain knowledge into the smaller components, whether that's a PC, a home server, or a website.
-        </p>
-        <div class="pt-4">
-          <div class="flex flex-wrap gap-3" id="skills-list">
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">C</span>
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">C++</span>
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">Java</span>
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">Python</span>
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">TypeScript</span>
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">HTML/CSS</span>
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">Arduino</span>
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">Docker</span>
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">Linux</span>
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">Git/GitHub</span>
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">VS Code</span>
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">IntelliJ</span>
-            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-100 text-gray-800 rounded-full text-sm sm:text-base md:text-lg font-medium">Tailscale</span>
-          </div>
+      <article class="project">
+        <div class="project-head">
+          <h3>Spottr</h3>
+          <span class="status">In progress</span>
         </div>
-      </div>
+        <p>A web app that shows how busy the UBC Rec North gym is before you walk over. Built with a team of classmates for CPEN 221. I'm a developer on the team, co-wrote the requirements document, and own the acceptance testing plan that verifies each requirement.</p>
+        <ul class="tags"><li>Web app</li><li>Requirements</li><li>Acceptance testing</li><li>Team project</li></ul>
+    <div class="shots shots-1">
+      <svg class="figure" viewBox="0 0 420 236" role="img" aria-label="Illustration of gym busyness through a day, shown as bars">
+        <g fill="#3b3a36">
+          <rect x="20" y="150" width="22" height="50" rx="3"/><rect x="50" y="120" width="22" height="80" rx="3"/>
+          <rect x="80" y="134" width="22" height="66" rx="3"/><rect x="110" y="158" width="22" height="42" rx="3"/>
+          <rect x="140" y="140" width="22" height="60" rx="3"/><rect x="170" y="112" width="22" height="88" rx="3"/>
+          <rect x="320" y="96" width="22" height="104" rx="3"/><rect x="350" y="130" width="22" height="70" rx="3"/>
+          <rect x="380" y="164" width="22" height="36" rx="3"/>
+        </g>
+        <g fill="#8fb4ff">
+          <rect x="200" y="78" width="22" height="122" rx="3"/><rect x="230" y="44" width="22" height="156" rx="3"/>
+          <rect x="260" y="36" width="22" height="164" rx="3"/><rect x="290" y="62" width="22" height="138" rx="3"/>
+        </g>
+        <line x1="14" y1="208" x2="408" y2="208" stroke="#3b3a36" stroke-width="2"/>
+      </svg>
     </div>
-  </section>
+      </article>
 
-  <!-- ============ PROJECTS ============ -->
-  <section id="projects" class="p-8 sm:p-12 md:p-16 lg:p-24">
-    <h2 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-gray-900 tracking-tight">Projects</h2>
-    <p class="mt-3 text-base sm:text-lg text-gray-600 leading-relaxed">A selection of things I've built.</p>
-    <div class="w-[75px] h-[5px] mt-2 mb-10 rounded-full" style="background-color:#F2A93B"></div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-      <a href="articles/proj-1.html" class="group relative block cursor-pointer">
-        <div class="relative p-6 md:p-8 bg-gray-50 rounded-2xl border border-gray-200 transition-all duration-300 group-hover:scale-[1.02] group-hover:-translate-y-1 overflow-hidden">
-          <div class="relative z-10 space-y-4">
-            <div>
-              <span class="text-sm font-mono" style="color:#F2A93B">01</span>
-              <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1">Raspberry Pi 5 Homelab</h3>
-            </div>
-            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
-              A multi-service Raspberry Pi 5 home server built to run practical Linux administration, containerization, networking, and storage management as one continuously running box. Six containerized services (Nextcloud, Pi-hole, Jellyfin, Uptime Kuma, Portainer, and a Homepage dashboard) run on a 2 TB NVMe SSD, with Tailscale providing secure, multi-user remote access so family can reach it from outside the home network.
-            </p>
-            <div class="grid grid-cols-3 gap-4">
-              <img src="images/raspberry1.jpg" alt="Raspberry Pi homelab parts and components" class="w-full aspect-square object-cover rounded-md shadow-lg">
-              <img src="images/raspberry2.jpg" alt="Assembled Raspberry Pi homelab with blue lighting" class="w-full aspect-square object-cover rounded-md shadow-lg">
-              <img src="images/homepage-dashboard.png" alt="Homepage dashboard tying together the homelab's services" class="w-full aspect-square object-cover rounded-md shadow-lg bg-gray-900">
-            </div>
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Linux</span>
-              <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Docker</span>
-              <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Networking</span>
-            </div>
-          </div>
+      <article class="project">
+        <div class="project-head">
+          <h3>FPGA Logic Analyzer</h3>
+          <span class="status">Planned</span>
         </div>
-      </a>
-
-      <a href="articles/proj-2.html" class="group relative block cursor-pointer">
-        <div class="relative p-6 md:p-8 bg-gray-50 rounded-2xl border border-gray-200 transition-all duration-300 group-hover:scale-[1.02] group-hover:-translate-y-1 overflow-hidden">
-          <div class="relative z-10 space-y-4">
-            <div>
-              <span class="text-sm font-mono" style="color:#F2A93B">02</span>
-              <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1">Calorie Tracker App</h3>
-            </div>
-            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
-              A web-based calorie tracking application built with Replit and AI-assisted development, with hand-refined TypeScript and CSS for a more polished, production-like interface.
-            </p>
-            <div class="grid grid-cols-2 gap-4">
-              <img src="images/nutricalc-finished.png" alt="Calorie Tracker app finished interface" class="w-full aspect-square object-contain bg-white rounded-md shadow-lg">
-              <img src="images/nutricalc-build.png" alt="Calorie Tracker app being built in Replit" class="w-full aspect-square object-contain bg-white rounded-md shadow-lg">
-            </div>
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">TypeScript</span>
-              <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Replit</span>
-              <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">CSS</span>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a href="articles/proj-3.html" class="group relative block cursor-pointer">
-        <div class="relative p-6 md:p-8 bg-gray-50 rounded-2xl border border-gray-200 transition-all duration-300 group-hover:scale-[1.02] group-hover:-translate-y-1 overflow-hidden">
-          <div class="relative z-10 space-y-4">
-            <div>
-              <span class="text-sm font-mono" style="color:#F2A93B">03</span>
-              <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1">Conway's Game of Life</h3>
-            </div>
-            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
-              A from-scratch C implementation of Conway's Game of Life for APSC 160. Handles board copying, neighbor counting across edge and corner cells, and live/dead transition logic to simulate any starting pattern generation by generation.
-            </p>
-            <div class="grid grid-cols-1 gap-4">
-              <img src="images/icon-gameoflife.svg" alt="Game of Life grid illustration" class="w-full max-w-xs mx-auto aspect-square object-contain bg-white rounded-md shadow-lg">
-            </div>
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">C</span>
-              <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Algorithms</span>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a href="articles/proj-4.html" class="group relative block cursor-pointer">
-        <div class="relative p-6 md:p-8 bg-gray-50 rounded-2xl border border-gray-200 transition-all duration-300 group-hover:scale-[1.02] group-hover:-translate-y-1 overflow-hidden">
-          <div class="relative z-10 space-y-4">
-            <div>
-              <span class="text-sm font-mono" style="color:#F2A93B">04</span>
-              <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1">Servo Claw</h3>
-            </div>
-            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
-              A sensor-equipped mechanical claw built with a group of students. An ultrasonic sensor detects a nearby object, and a servo-driven gripper picks it up automatically.
-            </p>
-            <div class="grid grid-cols-2 gap-4">
-              <img src="images/claw-sketch.jpg" alt="Hand-drawn design sketch of the claw's elastic-band gripper arms" class="w-full aspect-square object-contain bg-white rounded-md shadow-lg">
-              <img src="images/claw-electronics.jpg" alt="Arduino and servo wiring inside the claw's housing" class="w-full aspect-square object-cover rounded-md shadow-lg">
-            </div>
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Arduino</span>
-              <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">C++</span>
-              <span class="px-3 py-1 bg-gray-900 text-white rounded-lg text-xs sm:text-sm font-medium">Sensors</span>
-            </div>
-          </div>
-        </div>
-      </a>
-
+        <p>My next build: a logic analyzer on my own DE10-Lite FPGA board that captures digital signals, with a Raspberry Pi as the host that pulls the samples off and displays them. I'll post the design and results here as it comes together.</p>
+        <ul class="tags"><li>FPGA</li><li>Digital logic</li><li>Raspberry Pi</li></ul>
+    <div class="shots shots-1">
+      <svg class="figure" viewBox="0 0 420 236" role="img" aria-label="Illustration of four digital signal traces on a timing diagram">
+        <g stroke="#3b3a36" stroke-width="1" stroke-dasharray="3 5">
+          <line x1="80" y1="16" x2="80" y2="220"/><line x1="160" y1="16" x2="160" y2="220"/>
+          <line x1="240" y1="16" x2="240" y2="220"/><line x1="320" y1="16" x2="320" y2="220"/>
+        </g>
+        <g fill="none" stroke-width="2.5" stroke-linejoin="round">
+          <path stroke="#8fb4ff" d="M10 60H40V28H80V60H120V28H160V60H200V28H240V60H280V28H320V60H360V28H400V60H410"/>
+          <path stroke="#d8d5cc" d="M10 112H80V80H200V112H240V80H360V112H410"/>
+          <path stroke="#d8d5cc" d="M10 132H120V164H160V132H280V164H320V132H410"/>
+          <path stroke="#a58cf0" d="M10 216H160V184H320V216H410"/>
+        </g>
+      </svg>
     </div>
-  </section>
+      </article>
 
-  <!-- ============ EXPERIENCE ============ -->
-  <section id="experience" class="p-8 sm:p-12 md:p-16 lg:p-24">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-      <div class="lg:col-span-4">
-        <h2 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-gray-900 tracking-tight">Experience</h2>
-        <div class="w-[75px] h-[5px] mt-2 rounded-full" style="background-color:#F2A93B"></div>
-      </div>
-      <div class="lg:col-span-8 space-y-8">
-
-        <a href="articles/exp-1.html" class="group relative block cursor-pointer">
-          <div class="relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-gray-300 hover:-translate-y-1">
-            <div class="space-y-4">
-              <div>
-                <div class="flex flex-wrap items-baseline gap-3">
-                  <h3 class="text-xl sm:text-xl font-bold text-black mt-1">MFC Games</h3>
-                  <span class="text-sm italic font-normal text-gray-500 mt-1">Calgary, AB</span>
-                </div>
-                <p class="text-base sm:text-xl mt-1">Website Administrator</p>
-              </div>
-              <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
-                Maintained and updated the organization's website with blog posts, event information, and photo galleries, keeping content accurate throughout the event season. Collaborated with organizers on navigation and visual design improvements.
-              </p>
-              <div class="grid grid-cols-1 gap-4">
-                <img src="images/mfc-team.jpg" alt="Ralu with the MFC Games team" class="w-full object-cover rounded-md shadow-lg">
-                <div class="w-full bg-gray-50 border border-gray-200 rounded-md shadow-sm p-8 flex items-center justify-center">
-                  <img src="images/mfc-logo.png" alt="MFC Games logo" class="w-full max-w-[240px] object-contain">
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="articles/exp-3.html" class="group relative block cursor-pointer">
-          <div class="relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-gray-300 hover:-translate-y-1">
-            <div class="space-y-4">
-              <div>
-                <div class="flex flex-wrap items-baseline gap-3">
-                  <h3 class="text-xl sm:text-xl font-bold text-black mt-1">Pedalheads Bike Camps</h3>
-                  <span class="text-sm italic font-normal text-gray-500 mt-1">Calgary, AB</span>
-                </div>
-                <p class="text-base sm:text-xl mt-1">Camp Instructor</p>
-              </div>
-              <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
-                Taught cycling skills and safety drills to groups of children, building their confidence and riding ability throughout each camp session. Communicated effectively with parents and fellow instructors across three summers.
-              </p>
-              <div class="grid grid-cols-1 gap-4">
-                <div class="w-full bg-gray-900 rounded-md shadow-lg p-8 flex items-center justify-center">
-                  <img src="images/pedalheads-logo.png" alt="Pedalheads logo" class="w-full max-w-[240px] object-contain">
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="articles/exp-4.html" class="group relative block cursor-pointer">
-          <div class="relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-gray-300 hover:-translate-y-1">
-            <div class="space-y-4">
-              <div>
-                <div class="flex flex-wrap items-baseline gap-3">
-                  <h3 class="text-xl sm:text-xl font-bold text-black mt-1">Master's Eagles JH Basketball</h3>
-                  <span class="text-sm italic font-normal text-gray-500 mt-1">Calgary, AB</span>
-                </div>
-                <p class="text-base sm:text-xl mt-1">Coach</p>
-              </div>
-              <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
-                Co-coached the Grade 7 boys' basketball team to a CISAA league championship, running practices and games weekly. Communicated effectively with players and parents while promoting discipline and leadership.
-              </p>
-              <div class="grid grid-cols-1 gap-4">
-                <img src="images/basketball.jpg" alt="Master's Eagles Grade 7 basketball team with medals" class="w-full object-cover rounded-md shadow-lg">
-              </div>
-            </div>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ EDUCATION ============ -->
-  <section id="education" class="p-8 sm:p-12 md:p-16 lg:p-24">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-      <div class="lg:col-span-4">
-        <h2 class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-gray-900 tracking-tight">Education</h2>
-        <div class="w-[75px] h-[5px] mt-2 rounded-full" style="background-color:#F2A93B"></div>
-      </div>
-      <div class="lg:col-span-8 space-y-8">
-
-        <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-5 md:p-6 hover:shadow-md transition-shadow duration-300">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
-            <div>
-              <h3 class="text-lg sm:text-xl font-semibold text-gray-900">University of British Columbia</h3>
-              <p class="text-base sm:text-lg">Bachelor of Applied Science – Computer Engineering</p>
-            </div>
-            <span class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-0">2025 - Expected May 2029</span>
-          </div>
-
-          <p class="text-base sm:text-lg italic mb-2">Achievements</p>
-          <ul class="space-y-2">
-            <li class="flex items-start">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0"></span>
-              <span class="text-sm sm:text-base text-gray-600">94% in Introduction to Computation in Engineering Design</span>
-            </li>
-            <li class="flex items-start">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0"></span>
-              <span class="text-sm sm:text-base text-gray-600">Certified in Introduction to Microprocessors, Arm Education</span>
-            </li>
-          </ul>
-
-          <p class="text-base sm:text-lg italic mt-4 mb-2">Selected Relevant Courses</p>
-          <ul class="space-y-2">
-            <li class="flex items-start">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0"></span>
-              <span class="text-sm sm:text-base text-gray-600">Introduction to Computation in Engineering Design</span>
-            </li>
-            <li class="flex items-start">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0"></span>
-              <span class="text-sm sm:text-base text-gray-600">Programming in C (APSC 160)</span>
-            </li>
-            <li class="flex items-start">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0"></span>
-              <span class="text-sm sm:text-base text-gray-600">Electromagnetism (PHYS 158)</span>
-            </li>
-            <li class="flex items-start">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0"></span>
-              <span class="text-sm sm:text-base text-gray-600">Linear Algebra (MATH 152)</span>
-            </li>
-          </ul>
+      <article class="project">
+        <div class="project-head">
+          <h3><a href="articles/proj-2.html">Calorie Tracker App</a></h3>
         </div>
-
-        <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-5 md:p-6 hover:shadow-md transition-shadow duration-300">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
-            <div>
-              <h3 class="text-lg sm:text-xl font-semibold text-gray-900">Master's Academy and College</h3>
-              <p class="text-base sm:text-lg">High School Diploma</p>
-            </div>
-            <span class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-0">2013 - 2025</span>
-          </div>
-          <p class="text-base sm:text-lg italic mb-2">Achievements</p>
-          <ul class="space-y-2">
-            <li class="flex items-start">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0"></span>
-              <span class="text-sm sm:text-base text-gray-600">Graduated with Honours and Distinction</span>
-            </li>
-            <li class="flex items-start">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0"></span>
-              <span class="text-sm sm:text-base text-gray-600">Athlete of the Year, senior year</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
+        <p>NutriCalc turns your body stats and goals into a daily calorie target and keeps a history of past calculations. I built the first draft with AI-assisted tools in Replit, then reviewed and fixed the TypeScript and refined the CSS by hand.</p>
+        <ul class="tags"><li>TypeScript</li><li>CSS</li><li>Replit</li></ul>
+        <a class="more" href="articles/proj-2.html">Read the write-up</a>
+    <div class="shots shots-2">
+      <img class="contain" src="images/nutricalc-finished.png" alt="Calorie Tracker app finished interface" loading="lazy">
+      <img class="contain" src="images/nutricalc-build.png" alt="Calorie Tracker app being built in Replit" loading="lazy">
     </div>
-  </section>
+      </article>
 
-</section>
-
-<!-- ============ FOOTER ============ -->
-<footer class="relative bg-gray-50 border-t border-gray-200">
-  <div class="mx-auto max-w-6xl px-6 py-12 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-      <div class="flex flex-col gap-4">
-        <h3 class="text-2xl font-bold text-gray-800">Ralu Chineme</h3>
-        <p class="text-base text-gray-600">Computer Engineering Student, UBC</p>
-        <div class="flex gap-x-6">
-          <a href="mailto:raluchineme@gmail.com" aria-label="Email" class="text-gray-600 transition-colors duration-300 hover:text-[#F2A93B]">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-              <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
-              <path d="M3 7l9 6l9 -6"></path>
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/raluc5090" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-600 transition-colors duration-300 hover:text-[#F2A93B]">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-              <path d="M8 11v5"></path><path d="M8 8v.01"></path><path d="M12 16v-5"></path>
-              <path d="M16 16v-3a2 2 0 1 0 -4 0"></path>
-              <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path>
-            </svg>
-          </a>
-          <a href="https://github.com/Ralu-Stack" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-600 transition-colors duration-300 hover:text-[#F2A93B]">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-              <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
-            </svg>
-          </a>
+      <article class="project">
+        <div class="project-head">
+          <h3><a href="articles/proj-3.html">Conway's Game of Life</a></h3>
         </div>
-      </div>
-      <div class="hidden md:flex md:flex-col md:items-end gap-4">
-        <nav class="flex gap-x-8">
-          <a href="#about" class="text-sm text-gray-600 hover:text-gray-800 transition-colors">About</a>
-          <a href="#projects" class="text-sm text-gray-600 hover:text-gray-800 transition-colors">Projects</a>
-          <a href="#experience" class="text-sm text-gray-600 hover:text-gray-800 transition-colors">Experience</a>
-          <a href="#education" class="text-sm text-gray-600 hover:text-gray-800 transition-colors">Education</a>
-        </nav>
-        <p class="text-sm text-gray-500" id="copyright"></p>
-      </div>
+        <p>A from-scratch C implementation for APSC 160. It copies the board each generation, counts neighbours correctly for edge and corner cells with bounds checking, and applies the live/dead rules to simulate any starting pattern.</p>
+        <ul class="tags"><li>C</li><li>Algorithms</li></ul>
+        <a class="more" href="articles/proj-3.html">Read the write-up</a>
+    <div class="shots shots-1">
+      <svg class="figure" viewBox="0 0 420 236" role="img" aria-label="Illustration of a Game of Life grid with a glider pattern">
+        <g fill="#2b2a27" stroke="#3b3a36" stroke-width="1">
+          <!-- grid drawn by rows -->
+          <g id="row"><rect x="70" y="18" width="36" height="36" rx="4"/><rect x="110" y="18" width="36" height="36" rx="4"/><rect x="150" y="18" width="36" height="36" rx="4"/><rect x="190" y="18" width="36" height="36" rx="4"/><rect x="230" y="18" width="36" height="36" rx="4"/><rect x="270" y="18" width="36" height="36" rx="4"/><rect x="310" y="18" width="36" height="36" rx="4"/></g>
+          <use href="#row" y="40"/><use href="#row" y="80"/><use href="#row" y="120"/><use href="#row" y="160"/>
+        </g>
+        <g fill="#8fb4ff">
+          <rect x="190" y="18" width="36" height="36" rx="4"/>
+          <rect x="230" y="58" width="36" height="36" rx="4"/>
+          <rect x="150" y="98" width="36" height="36" rx="4"/><rect x="190" y="98" width="36" height="36" rx="4"/><rect x="230" y="98" width="36" height="36" rx="4"/>
+        </g>
+      </svg>
     </div>
-  </div>
-  <div class="absolute inset-0 -z-10 overflow-hidden">
-    <svg aria-hidden="true" class="absolute bottom-0 left-0 w-full h-24 text-gray-100">
-      <pattern id="footer-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-        <path d="M0 50 Q 25 40, 50 50 T 100 50" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.4"></path>
-      </pattern>
-      <rect width="100%" height="100%" fill="url(#footer-pattern)"></rect>
-    </svg>
-  </div>
-</footer>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h3><a href="articles/proj-4.html">Servo Claw</a></h3>
+        </div>
+        <p>A sheet-metal claw built with a group of students that grabs objects on its own. An ultrasonic sensor measures distance, and once something is close enough the Arduino drives a servo to close the gripper. I helped write the rotation-control code and build the claw.</p>
+        <ul class="tags"><li>Arduino</li><li>C++</li><li>Sensors</li><li>Team project</li></ul>
+        <a class="more" href="articles/proj-4.html">Read the write-up</a>
+    <div class="shots shots-2">
+      <img class="contain" src="images/claw-sketch.jpg" alt="Hand-drawn design sketch of the claw's elastic-band gripper arms" loading="lazy">
+      <img src="images/claw-electronics.jpg" alt="Arduino and servo wiring inside the claw's housing" loading="lazy">
+    </div>
+      </article>
+    </section>
+
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+
+      <article class="entry">
+      <div class="entry-top">
+        <h3><a href="articles/exp-1.html">MFC Games</a></h3>
+        <span class="entry-date">May 2024 – Aug 2024</span>
+      </div>
+      <p class="entry-role"><span>Website Administrator</span><span>Calgary, AB</span></p>
+      <p class="entry-body">
+        Maintained the organization's website with blog posts, event information, and photo galleries, keeping content accurate through the event season. Worked with organizers on navigation and visual design improvements.
+      </p>
+    </article>
+
+      <article class="entry">
+      <div class="entry-top">
+        <h3><a href="articles/exp-3.html">Pedalheads Bike Camps</a></h3>
+        <span class="entry-date">Summers 2022, 2023, 2026</span>
+      </div>
+      <p class="entry-role"><span>Camp Instructor</span><span>Calgary, AB</span></p>
+      <p class="entry-body">
+        Taught cycling skills and safety drills to groups of children across three summers, adapting lessons to different skill levels and keeping parents and fellow instructors in the loop.
+      </p>
+    </article>
+
+      <article class="entry">
+      <div class="entry-top">
+        <h3><a href="articles/exp-4.html">Master's Eagles JH Basketball</a></h3>
+        <span class="entry-date">Dec 2023 – Aug 2025</span>
+      </div>
+      <p class="entry-role"><span>Coach</span><span>Calgary, AB</span></p>
+      <p class="entry-body">
+        Co-coached the Grade 7 boys' team to a CISAA league championship, running weekly practices and games and communicating with players and parents.
+      </p>
+    </article>
+    </section>
+
+    <section id="education" class="section">
+      <h2>Education</h2>
+
+      <article class="entry">
+      <div class="entry-top">
+        <h3>University of British Columbia</h3>
+        <span class="entry-date">2025 – Expected May 2029</span>
+      </div>
+      <p class="entry-role">Bachelor of Applied Science, Computer Engineering</p>
+
+      <p class="label">Achievements</p>
+      <ul class="plain-list">
+        <li>94% in Introduction to Computation in Engineering Design (APSC 160)</li>
+        <li>Certified in Introduction to Microprocessors, Arm Education</li>
+      </ul>
+
+      <p class="label">Current courses</p>
+      <ul class="plain-list">
+        <li>Computer Systems (CPEN 211): RISC-V assembly and digital design on a DE10-Lite FPGA</li>
+        <li>Software Construction (CPEN 221): Java</li>
+        <li>Multivariable Calculus (MATH 253)</li>
+      </ul>
+
+      <p class="label">Completed courses</p>
+      <ul class="plain-list">
+        <li>Introduction to Computation in Engineering Design (APSC 160): programming in C</li>
+        <li>Electromagnetism (PHYS 158)</li>
+        <li>Linear Algebra (MATH 152)</li>
+      </ul>
+    </article>
+
+      <article class="entry">
+      <div class="entry-top">
+        <h3>Master's Academy and College</h3>
+        <span class="entry-date">2013 – 2025</span>
+      </div>
+      <p class="entry-role">High School Diploma</p>
+      <ul class="plain-list">
+        <li>Graduated with Honours and Distinction</li>
+        <li>Athlete of the Year, senior year</li>
+      </ul>
+    </article>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year">2026</span> Ralu Chineme</p>
+    </footer>
+
+  </main>
+</div>
 
 <script>
-  window.addEventListener('scroll', () => {
-    const header = document.getElementById('header');
-    if (window.scrollY > 100) {
-      header.classList.add('bg-white/80', 'backdrop-blur-sm');
-    } else {
-      header.classList.remove('bg-white/80', 'backdrop-blur-sm');
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Highlight the sidebar link for the section currently on screen.
+  var links = document.querySelectorAll('.side-nav a');
+  var sections = document.querySelectorAll('.section');
+  function markActive() {
+    var current = sections[0];
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top <= window.innerHeight * 0.35) {
+        current = sections[i];
+      }
     }
-  });
-  document.getElementById('copyright').textContent = '© ' + new Date().getFullYear() + ' Ralu Chineme';
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) {
+      current = sections[sections.length - 1];
+    }
+    for (var j = 0; j < links.length; j++) {
+      links[j].classList.toggle('active', links[j].getAttribute('href') === '#' + current.id);
+    }
+  }
+  window.addEventListener('scroll', markActive, { passive: true });
+  window.addEventListener('resize', markActive);
+  markActive();
 </script>
 
 </body>
